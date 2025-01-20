@@ -17,7 +17,7 @@ if webcam.isOpened():
         if HandPoints:
             for i in HandPoints:
                 print(i)
-                mpDrawn.drawn_landmarks(imagem,i,hand.HAND_CONNECTIONS)
+                mpDrawn.draw_landmarks(imagem,i,hand.HAND_CONNECTIONS)
 
 
         cv2.imshow("Test", imagem)
