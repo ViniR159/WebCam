@@ -5,13 +5,15 @@ webcam = cv2.VideoCapture(0)
 Ativar = True
 
 hand = mp.solutions.hands
-Hand = hand.Hands(max_num_hands=2)
+Hand = hand.Hands(max_num_hands=4)
 mpDrawn = mp.solutions.drawing_utils
 
 if webcam.isOpened():
     while Ativar:
         foi, imagem = webcam.read()
-        resultado = Hand.process(imagem)
+        imagem = cv2.flip(imagem, 1)
+        imgRGB = cv2.cvtColor(imagem, cv2.COLOR_BGR2RGB)
+        resultado = Hand.process(imgRGB)
         HandPoints = resultado.multi_hand_landmarks
 
         if HandPoints:
